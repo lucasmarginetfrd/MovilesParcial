@@ -1,23 +1,19 @@
 package com.example.marginetcamposparcial
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var spinner: Spinner
     private lateinit var listView: ListView
     private lateinit var nacionalidad: String
-    private val intentHelper = IntentHelper()
+    private val intentGetter = IntentGetter()
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 else -> null
             }
             if (deportistaSeleccionado != null) {
-                intentHelper.getIntent(deportistaSeleccionado.nombre, deportistaSeleccionado.deporte, deportistaSeleccionado.actividad, this)
+                intentGetter.getIntent(deportistaSeleccionado.nombre, deportistaSeleccionado.deporte, deportistaSeleccionado.actividad, this)
             }
 
         }
